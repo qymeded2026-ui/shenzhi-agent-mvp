@@ -1,0 +1,56 @@
+{
+  "case_id": "case_001",
+  "title": "病例1：肝郁脾虚证",
+  "disease_type": "神志病/郁证模拟问诊",
+  "basic_info": {
+    "name": "李女士",
+    "gender": "女",
+    "age": 35,
+    "occupation": "教师"
+  },
+  "chief_complaint": "情绪低落、睡眠不佳2个月",
+  "onset_trigger": "工作压力增大后逐渐出现",
+  "main_symptoms": [
+    "情绪低落",
+    "兴趣下降",
+    "胸闷叹气",
+    "入睡困难",
+    "食欲下降",
+    "疲乏",
+    "大便偏溏"
+  ],
+  "negative_info": [
+    "无明显幻听幻视",
+    "无躁狂或轻躁狂发作史",
+    "无明确自伤行为"
+  ],
+  "risk_level": "低风险，但需要主动筛查自杀意念",
+  "tcm_info": {
+  "syndrome": "肝郁脾虚证",
+  "tongue": "舌淡红，苔薄白",
+  "pulse": "脉弦细",
+  "treatment_principle": "疏肝健脾，养心安神",
+  "external_therapy": [
+    "耳穴压豆",
+    "五行音乐疗法",
+    "穴位贴敷"
+  ],
+  "tongue_images": [
+    "tongue_images/case_001.jpg"
+  ]
+},
+  "behavior_rules": {
+    "speaking_style": "回答较简短，轻度回避，情绪低落但愿意配合",
+    "do_not_reveal_all": true,
+    "avoid_terms": [
+      "肝郁脾虚",
+      "辨证",
+      "证型",
+      "逍遥散"
+    ],
+    "emotion_triggers": [
+      "工作压力",
+      "睡眠问题"
+    ]
+  }
+}
