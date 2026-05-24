@@ -41,8 +41,10 @@
     "tongue": "舌红，少苔",
     "pulse": "弦",
     "treatment_principle": "由督导Agent根据证型、症状及舌脉综合提示，仅作教学参考",
-    "tongue_images": [],
-    "tongue_image_status": "待补充"
+    "tongue_images": [
+  "tongue_images/teaching_case_016.jpg"
+],
+"tongue_image_status": "已补充"
   },
   "western_diagnosis": "双向情感障碍，目前为混合性发作",
   "risk_info": {
