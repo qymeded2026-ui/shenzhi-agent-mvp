@@ -1,0 +1,106 @@
+{
+  "case_id": "teaching_case_008",
+  "source_case_id": "case_117",
+  "source_row": 118,
+  "title": "精选病例08：心脾两虚证",
+  "disease_type": "神志病/精神心理模拟问诊",
+  "basic_info": {
+    "gender": "女",
+    "age": 32,
+    "BMI": 20.7
+  },
+  "scale_scores": {
+    "PHQ_9": 18,
+    "HAMD_24": 31,
+    "HAMA": 30,
+    "anxiety_level": "可能为严重焦虑",
+    "depression_level": "中"
+  },
+  "chief_complaint": "失眠、心境低落、心悸等不适",
+  "main_symptoms": [
+    "失眠",
+    "心境低落",
+    "易激惹",
+    "自卑",
+    "心悸",
+    "头晕",
+    "头痛",
+    "乏力",
+    "悲观消极",
+    "头重脚轻",
+    "口干",
+    "口苦",
+    "便秘",
+    "兴趣减退"
+  ],
+  "negative_info": [
+    "未问诊前不主动透露自伤自杀风险",
+    "未问诊前不主动透露精神病性症状或躁狂/轻躁狂表现",
+    "量表分数、证型和西医诊断仅作为教学参考，不由患者主动说出"
+  ],
+  "tcm_info": {
+    "constitution": "湿热质、阳虚质、气郁质",
+    "syndrome": "心脾两虚证",
+    "tongue": "舌红，苔白，有齿痕",
+    "pulse": "弦滑",
+    "treatment_principle": "由督导Agent根据证型、症状及舌脉综合提示，仅作教学参考",
+    "tongue_images": [
+  "tongue_images/teaching_case_008.jpg"
+],
+"tongue_image_status": "已补充"
+  },
+  "western_diagnosis": "焦虑抑郁状态/情绪不稳定型人格障碍边缘型",
+  "risk_info": {
+    "risk_level": "需进一步评估",
+    "risk_clues_from_record": [
+      "悲观消极"
+    ],
+    "must_ask": [
+      "自杀意念",
+      "自伤行为",
+      "精神病性症状",
+      "躁狂或轻躁狂表现",
+      "睡眠和食欲",
+      "舌象和脉象",
+      "自杀计划",
+      "保护因素",
+      "既往自伤史"
+    ]
+  },
+  "behavior_rules": {
+    "speaking_style": "被连续追问时可表现出烦躁或不耐烦",
+    "do_not_reveal_all": true,
+    "avoid_terms": [
+      "心脾两虚证",
+      "辨证",
+      "证型",
+      "PHQ-9",
+      "HAMD",
+      "HAMA",
+      "焦虑抑郁状态/情绪不稳定型人格障碍边缘型"
+    ],
+    "emotion_triggers": [
+      "睡眠问题",
+      "被追问风险问题",
+      "学习/工作压力",
+      "家庭关系"
+    ]
+  },
+  "teaching_points": {
+    "must_collect": [
+      "主诉与病程",
+      "诱因与应激事件",
+      "睡眠",
+      "食欲与二便",
+      "自伤自杀风险",
+      "躁狂/轻躁狂鉴别",
+      "精神病性症状鉴别",
+      "舌象和脉象"
+    ],
+    "common_mistakes": [
+      "只问情绪和睡眠，忽略风险筛查",
+      "患者未主动说舌脉时未继续追问",
+      "忽略躁狂、精神病性症状及躯体因素鉴别"
+    ]
+  }
+}
