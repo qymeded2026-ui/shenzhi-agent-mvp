@@ -1,0 +1,100 @@
+{
+  "case_id": "case_128",
+  "title": "病例128：肝郁脾虚证",
+  "disease_type": "神志病/双相障碍模拟问诊",
+  "basic_info": {
+    "gender": "女",
+    "age": 17,
+    "bmi": 30.3
+  },
+  "chief_complaint": "近期出现心境低落、情绪不稳、焦虑、食欲不振等不适",
+  "onset_trigger": "未明确记录，需问诊追问",
+  "main_symptoms": [
+    "心境低落",
+    "情绪不稳",
+    "头痛",
+    "恶心呕吐",
+    "胸部满闷",
+    "食欲不振",
+    "便溏",
+    "口干",
+    "口苦",
+    "焦虑",
+    "自责",
+    "悲观消极",
+    "自卑",
+    "易激惹"
+  ],
+  "negative_info": [
+    "未见明确幻听、妄想等精神病性症状记录",
+    "躁狂/双相相关线索：阳性/需追问",
+    "自伤自杀风险线索：阳性/需追问"
+  ],
+  "risk_level": "高：存在悲观/自伤自杀相关线索，需重点筛查",
+  "western_diagnosis": {
+    "category": "双相障碍",
+    "raw_diagnosis": "双相情感障碍"
+  },
+  "scale_scores": {
+    "PHQ-9": 17,
+    "HAMD-24": 20,
+    "HAMA": 23
+  },
+  "scale_interpretation": {
+    "depression": "HAMD提示中重度",
+    "anxiety": "HAMA提示明显焦虑",
+    "raw_anxiety_level": "肯定有明显焦虑",
+    "raw_depression_level": "中"
+  },
+  "extracted_info": {
+    "sleep": "未见明确睡眠信息",
+    "appetite_gastrointestinal": "恶心呕吐；食欲不振",
+    "urination_defecation": "便溏"
+  },
+  "tcm_info": {
+    "syndrome": "肝郁脾虚证",
+    "tongue": "舌尖红，少苔",
+    "pulse": "脉细",
+    "constitution": "气郁质、阴虚质、痰湿质",
+    "treatment_principle": "需结合完整问诊后辨证确定",
+    "external_therapy": [],
+    "tongue_images": [
+      "tongue_images/case_128.jpg"
+    ]
+  },
+  "teaching_info": {
+    "required_questions": [
+      "主诉/病程/诱因",
+      "睡眠/食欲/二便",
+      "自伤自杀风险",
+      "幻听妄想",
+      "躁狂或轻躁狂",
+      "舌象脉象",
+      "既往史/用药史/家族史"
+    ],
+    "split": "训练集",
+    "samples_per_case": 5,
+    "usable_for_first_round": "可用",
+    "data_quality_note": "症状列未明确睡眠信息；症状列含舌脉，构造患者回答时需避免一次性暴露"
+  },
+  "behavior_rules": {
+    "speaking_style": "语气低落，回答简短，表达主动性较低",
+    "do_not_reveal_all": true,
+    "avoid_terms": [
+      "肝郁脾虚证",
+      "双相障碍",
+      "辨证",
+      "证型",
+      "量表分数",
+      "PHQ-9",
+      "HAMD",
+      "HAMA"
+    ],
+    "avoid_information": "不主动透露中医证型、西医诊断、量表分数；不一次性说完全部症状",
+    "emotion_triggers": [
+      "食欲",
+      "心境低落",
+      "焦虑"
+    ]
+  }
+}
