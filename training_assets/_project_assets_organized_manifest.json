@@ -1,0 +1,10 @@
+{
+  "created_at": "2026-05-26T13:29:39",
+  "case_backup": "/Users/qymeded/Desktop/shenzhi_agent_mvp/cases/_backup_old_mvp_cases_20260526_132939",
+  "image_backup": "/Users/qymeded/Desktop/shenzhi_agent_mvp/tongue_images/_backup_old_teaching_images_20260526_132939",
+  "moved_old_case_json_count": 25,
+  "copied_234_case_json_count": 234,
+  "moved_old_teaching_image_count": 20,
+  "active_case_json_pattern": "cases/case_001_*.json ... cases/case_234_*.json",
+  "active_tongue_image_pattern": "tongue_images/case_001.jpg ... tongue_images/case_234.jpg"
+}
