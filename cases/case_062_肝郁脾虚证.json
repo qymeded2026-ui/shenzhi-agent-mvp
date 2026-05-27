@@ -1,0 +1,95 @@
+{
+  "case_id": "case_062",
+  "title": "病例062：肝郁脾虚证",
+  "disease_type": "神志病/焦虑障碍模拟问诊",
+  "basic_info": {
+    "gender": "女",
+    "age": 54,
+    "bmi": 28.8
+  },
+  "chief_complaint": "近期出现焦虑、烦躁不安、失眠、自汗等不适",
+  "onset_trigger": "未明确记录，需问诊追问",
+  "main_symptoms": [
+    "自汗",
+    "胸部满闷",
+    "气短",
+    "乏力",
+    "便秘",
+    "善太息",
+    "失眠",
+    "焦虑",
+    "躯体不适",
+    "烦躁不安"
+  ],
+  "negative_info": [
+    "未见明确幻听、妄想等精神病性症状记录",
+    "未见明确躁狂或轻躁狂发作记录",
+    "未见明确自伤自杀行为记录，但仍需主动筛查"
+  ],
+  "risk_level": "中：精神心理病例常规需筛查自伤自杀风险",
+  "western_diagnosis": {
+    "category": "焦虑障碍",
+    "raw_diagnosis": "广泛性焦虑障碍"
+  },
+  "scale_scores": {
+    "PHQ-9": 17,
+    "HAMD-24": 21,
+    "HAMA": 23
+  },
+  "scale_interpretation": {
+    "depression": "HAMD提示中重度",
+    "anxiety": "HAMA提示明显焦虑",
+    "raw_anxiety_level": "肯定有明显焦虑",
+    "raw_depression_level": "中"
+  },
+  "extracted_info": {
+    "sleep": "失眠",
+    "appetite_gastrointestinal": "未见明确食欲/胃肠信息",
+    "urination_defecation": "便秘"
+  },
+  "tcm_info": {
+    "syndrome": "肝郁脾虚证",
+    "tongue": "舌红，苔黄，有齿痕",
+    "pulse": "弦细",
+    "constitution": "气虚质、气郁质、痰湿质",
+    "treatment_principle": "需结合完整问诊后辨证确定",
+    "external_therapy": [],
+    "tongue_images": [
+      "tongue_images/case_062.jpg"
+    ]
+  },
+  "teaching_info": {
+    "required_questions": [
+      "主诉/病程/诱因",
+      "睡眠/食欲/二便",
+      "自伤自杀风险",
+      "幻听妄想",
+      "躁狂或轻躁狂",
+      "舌象脉象",
+      "既往史/用药史/家族史"
+    ],
+    "split": "训练集",
+    "samples_per_case": 5,
+    "usable_for_first_round": "可用",
+    "data_quality_note": "症状列未明确食欲/胃肠信息；症状列含舌脉，构造患者回答时需避免一次性暴露"
+  },
+  "behavior_rules": {
+    "speaking_style": "语气焦虑，回答略急促，容易紧张",
+    "do_not_reveal_all": true,
+    "avoid_terms": [
+      "肝郁脾虚证",
+      "焦虑障碍",
+      "辨证",
+      "证型",
+      "量表分数",
+      "PHQ-9",
+      "HAMD",
+      "HAMA"
+    ],
+    "avoid_information": "不主动透露中医证型、西医诊断、量表分数；不一次性说完全部症状",
+    "emotion_triggers": [
+      "焦虑",
+      "烦躁"
+    ]
+  }
+}
