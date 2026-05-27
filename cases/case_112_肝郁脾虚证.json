@@ -1,0 +1,97 @@
+{
+  "case_id": "case_112",
+  "title": "病例112：肝郁脾虚证",
+  "disease_type": "神志病/抑郁障碍模拟问诊",
+  "basic_info": {
+    "gender": "男",
+    "age": 20,
+    "bmi": 22.53
+  },
+  "chief_complaint": "近期出现心境低落、烦躁不安、失眠、食欲不振等不适",
+  "onset_trigger": "未明确记录，需问诊追问",
+  "main_symptoms": [
+    "表情淡漠",
+    "失眠",
+    "烦躁不安",
+    "心境低落",
+    "乏力",
+    "食欲不振",
+    "便溏",
+    "自卑",
+    "自责",
+    "悲观消极",
+    "健忘"
+  ],
+  "negative_info": [
+    "未见明确幻听、妄想等精神病性症状记录",
+    "未见明确躁狂或轻躁狂发作记录",
+    "自伤自杀风险线索：阳性/需追问"
+  ],
+  "risk_level": "高：存在悲观/自伤自杀相关线索，需重点筛查",
+  "western_diagnosis": {
+    "category": "抑郁障碍",
+    "raw_diagnosis": "不伴有躯体症状的中度抑郁发作"
+  },
+  "scale_scores": {
+    "PHQ-9": 21,
+    "HAMD-24": 35,
+    "HAMA": 21
+  },
+  "scale_interpretation": {
+    "depression": "HAMD提示重度",
+    "anxiety": "HAMA提示明显焦虑",
+    "raw_anxiety_level": "肯定有明显焦虑",
+    "raw_depression_level": "重"
+  },
+  "extracted_info": {
+    "sleep": "失眠",
+    "appetite_gastrointestinal": "食欲不振",
+    "urination_defecation": "便溏"
+  },
+  "tcm_info": {
+    "syndrome": "肝郁脾虚证",
+    "tongue": "舌尖红，苔白厚腻",
+    "pulse": "脉滑数",
+    "constitution": "气郁质、特禀质、气虚质",
+    "treatment_principle": "需结合完整问诊后辨证确定",
+    "external_therapy": [],
+    "tongue_images": [
+      "tongue_images/case_112.jpg"
+    ]
+  },
+  "teaching_info": {
+    "required_questions": [
+      "主诉/病程/诱因",
+      "睡眠/食欲/二便",
+      "自伤自杀风险",
+      "幻听妄想",
+      "躁狂或轻躁狂",
+      "舌象脉象",
+      "既往史/用药史/家族史"
+    ],
+    "split": "训练集",
+    "samples_per_case": 5,
+    "usable_for_first_round": "可用",
+    "data_quality_note": "症状列含舌脉，构造患者回答时需避免一次性暴露"
+  },
+  "behavior_rules": {
+    "speaking_style": "语气低落，回答简短，表达主动性较低",
+    "do_not_reveal_all": true,
+    "avoid_terms": [
+      "肝郁脾虚证",
+      "抑郁障碍",
+      "辨证",
+      "证型",
+      "量表分数",
+      "PHQ-9",
+      "HAMD",
+      "HAMA"
+    ],
+    "avoid_information": "不主动透露中医证型、西医诊断、量表分数；不一次性说完全部症状",
+    "emotion_triggers": [
+      "食欲",
+      "心境低落",
+      "烦躁"
+    ]
+  }
+}
