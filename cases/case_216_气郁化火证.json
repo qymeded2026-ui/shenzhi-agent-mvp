@@ -1,0 +1,94 @@
+{
+  "case_id": "case_216",
+  "title": "病例216：气郁化火证",
+  "disease_type": "神志病/双相障碍模拟问诊",
+  "basic_info": {
+    "gender": "女",
+    "age": 18,
+    "bmi": 24.46
+  },
+  "chief_complaint": "近期出现情绪不稳、焦虑、兴趣减退、食欲不振等不适",
+  "onset_trigger": "未明确记录，需问诊追问",
+  "main_symptoms": [
+    "胆怯易惊",
+    "情绪不稳",
+    "暴饮暴食",
+    "焦虑",
+    "食欲不振",
+    "健忘",
+    "易激惹",
+    "兴趣减退",
+    "口苦"
+  ],
+  "negative_info": [
+    "未见明确幻听、妄想等精神病性症状记录",
+    "躁狂/双相相关线索：阳性/需追问",
+    "未见明确自伤自杀行为记录，但仍需主动筛查"
+  ],
+  "risk_level": "中高：存在精神病性或双相相关线索，需重点鉴别",
+  "western_diagnosis": {
+    "category": "双相障碍",
+    "raw_diagnosis": "双相情感障碍"
+  },
+  "scale_scores": {
+    "PHQ-9": 6,
+    "HAMD-24": 9,
+    "HAMA": 14
+  },
+  "scale_interpretation": {
+    "depression": "HAMD提示轻中度",
+    "anxiety": "HAMA提示焦虑",
+    "raw_anxiety_level": "肯定有焦虑",
+    "raw_depression_level": "轻"
+  },
+  "extracted_info": {
+    "sleep": "未见明确睡眠信息",
+    "appetite_gastrointestinal": "食欲不振",
+    "urination_defecation": "未见明确二便信息"
+  },
+  "tcm_info": {
+    "syndrome": "气郁化火证",
+    "tongue": "舌边尖红，有点刺，苔白厚腻",
+    "pulse": "脉数",
+    "constitution": "平和质",
+    "treatment_principle": "需结合完整问诊后辨证确定",
+    "external_therapy": [],
+    "tongue_images": [
+      "tongue_images/case_216.jpg"
+    ]
+  },
+  "teaching_info": {
+    "required_questions": [
+      "主诉/病程/诱因",
+      "睡眠/食欲/二便",
+      "自伤自杀风险",
+      "幻听妄想",
+      "躁狂或轻躁狂",
+      "舌象脉象",
+      "既往史/用药史/家族史"
+    ],
+    "split": "训练集",
+    "samples_per_case": 5,
+    "usable_for_first_round": "可用",
+    "data_quality_note": "症状列未明确睡眠信息；症状列未明确二便信息；症状列含舌脉，构造患者回答时需避免一次性暴露"
+  },
+  "behavior_rules": {
+    "speaking_style": "语气低落，回答简短，表达主动性较低",
+    "do_not_reveal_all": true,
+    "avoid_terms": [
+      "气郁化火证",
+      "双相障碍",
+      "辨证",
+      "证型",
+      "量表分数",
+      "PHQ-9",
+      "HAMD",
+      "HAMA"
+    ],
+    "avoid_information": "不主动透露中医证型、西医诊断、量表分数；不一次性说完全部症状",
+    "emotion_triggers": [
+      "食欲",
+      "焦虑"
+    ]
+  }
+}
