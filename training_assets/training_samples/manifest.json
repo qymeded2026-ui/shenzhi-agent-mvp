@@ -1,0 +1,23 @@
+{
+  "source": "/Users/qymeded/Desktop/神志病AI项目训练数据/病例一般信息_标准病例表_可构造训练样本.xlsx",
+  "output_dir": "/Users/qymeded/Documents/神志病AI/training_samples",
+  "cases": 234,
+  "sample_types": [
+    "standard_full_interview",
+    "risk_screening_focus",
+    "tcm_information_focus",
+    "differential_diagnosis_focus",
+    "incomplete_interview_for_scoring"
+  ],
+  "dialogue_samples": {
+    "train": 940,
+    "val": 230,
+    "all": 1170
+  },
+  "patient_agent_sft_turns": {
+    "train": 5452,
+    "val": 1334,
+    "all": 6786
+  },
+  "schema_note": "所有样本均为脱敏模拟教学数据，不用于真实诊疗。"
+}
