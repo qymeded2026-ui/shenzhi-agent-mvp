@@ -1,0 +1,931 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>神志病AI正式网页版部署操作指南</title>
+    <style>
+      @page {
+        size: A4;
+        margin: 14mm 12mm;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #172033;
+        background: #f4f7fb;
+        font-family: "PingFang SC", "Hiragino Sans GB", "STHeiti", "Arial Unicode MS", sans-serif;
+        font-size: 13px;
+        line-height: 1.64;
+      }
+
+      .page {
+        background: #ffffff;
+      }
+
+      .cover {
+        min-height: 265mm;
+        padding: 28mm 22mm 18mm;
+        background:
+          linear-gradient(135deg, rgba(15, 118, 110, 0.11), rgba(249, 115, 22, 0.08)),
+          #ffffff;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+      }
+
+      .eyebrow {
+        color: #0f766e;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+      }
+
+      h1 {
+        margin: 18px 0 16px;
+        color: #111827;
+        font-size: 35px;
+        line-height: 1.18;
+        letter-spacing: 0;
+      }
+
+      .subtitle {
+        max-width: 620px;
+        color: #526071;
+        font-size: 17px;
+        line-height: 1.75;
+      }
+
+      .cover-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+        margin-top: 34px;
+      }
+
+      .cover-card,
+      .callout,
+      .warning,
+      .info-box,
+      .step,
+      .qa,
+      .flow {
+        border: 1px solid #dbe3ee;
+        border-radius: 10px;
+        background: #ffffff;
+      }
+
+      .cover-card {
+        padding: 14px 16px;
+        min-height: 86px;
+      }
+
+      .cover-card strong {
+        display: block;
+        color: #0f766e;
+        font-size: 14px;
+        margin-bottom: 5px;
+      }
+
+      .meta {
+        margin-top: 18px;
+        color: #64748b;
+      }
+
+      .content {
+        padding: 0 6mm 6mm;
+        background: #ffffff;
+      }
+
+      section {
+        break-inside: auto;
+        padding: 8px 0 10px;
+      }
+
+      .section-break {
+        page-break-before: always;
+      }
+
+      h2 {
+        margin: 20px 0 10px;
+        color: #0f172a;
+        font-size: 21px;
+        line-height: 1.3;
+        border-left: 5px solid #0f766e;
+        padding-left: 10px;
+      }
+
+      h3 {
+        margin: 16px 0 7px;
+        color: #1f2937;
+        font-size: 16px;
+      }
+
+      h4 {
+        margin: 12px 0 6px;
+        color: #334155;
+        font-size: 14px;
+      }
+
+      p {
+        margin: 6px 0;
+      }
+
+      ul,
+      ol {
+        margin: 7px 0 9px 22px;
+        padding: 0;
+      }
+
+      li {
+        margin: 3px 0;
+      }
+
+      code,
+      pre {
+        font-family: "SFMono-Regular", Menlo, Consolas, monospace;
+      }
+
+      code {
+        color: #0f766e;
+        background: #ecfdf5;
+        border-radius: 4px;
+        padding: 1px 4px;
+        font-size: 12px;
+      }
+
+      pre {
+        margin: 9px 0 12px;
+        padding: 11px 12px;
+        border-radius: 8px;
+        color: #dbeafe;
+        background: #111827;
+        font-size: 11.2px;
+        line-height: 1.55;
+        white-space: pre-wrap;
+        word-break: break-word;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 9px 0 14px;
+        font-size: 12.2px;
+        break-inside: avoid;
+      }
+
+      th,
+      td {
+        border: 1px solid #d7dee8;
+        padding: 8px 9px;
+        vertical-align: top;
+      }
+
+      th {
+        color: #0f172a;
+        background: #f1f5f9;
+        font-weight: 700;
+      }
+
+      .small {
+        font-size: 11.5px;
+        color: #64748b;
+      }
+
+      .callout,
+      .warning,
+      .info-box {
+        margin: 11px 0 13px;
+        padding: 12px 14px;
+        break-inside: avoid;
+      }
+
+      .callout {
+        border-color: #99f6e4;
+        background: #f0fdfa;
+      }
+
+      .warning {
+        border-color: #fed7aa;
+        background: #fff7ed;
+      }
+
+      .info-box {
+        border-color: #bfdbfe;
+        background: #eff6ff;
+      }
+
+      .label {
+        display: inline-block;
+        min-width: 86px;
+        color: #475569;
+        font-weight: 700;
+      }
+
+      .steps {
+        counter-reset: steps;
+      }
+
+      .step {
+        position: relative;
+        margin: 9px 0 11px;
+        padding: 11px 13px 11px 46px;
+        background: #ffffff;
+        break-inside: avoid;
+      }
+
+      .step::before {
+        counter-increment: steps;
+        content: counter(steps);
+        position: absolute;
+        left: 13px;
+        top: 12px;
+        width: 23px;
+        height: 23px;
+        border-radius: 50%;
+        color: #ffffff;
+        background: #0f766e;
+        text-align: center;
+        line-height: 23px;
+        font-weight: 700;
+        font-size: 12px;
+      }
+
+      .step-title {
+        margin: 0 0 4px;
+        color: #111827;
+        font-weight: 700;
+      }
+
+      .checklist li {
+        list-style: none;
+        margin-left: -18px;
+      }
+
+      .checklist li::before {
+        content: "□";
+        margin-right: 7px;
+        color: #0f766e;
+        font-weight: 700;
+      }
+
+      .flow {
+        margin: 12px 0 14px;
+        padding: 12px;
+        background: #f8fafc;
+        break-inside: avoid;
+      }
+
+      .flow-row {
+        display: grid;
+        grid-template-columns: 1fr 32px 1fr 32px 1fr;
+        gap: 8px;
+        align-items: center;
+      }
+
+      .flow-box {
+        min-height: 54px;
+        border: 1px solid #cbd5e1;
+        border-radius: 9px;
+        background: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 9px;
+        text-align: center;
+        font-weight: 700;
+      }
+
+      .arrow {
+        color: #0f766e;
+        font-size: 22px;
+        text-align: center;
+      }
+
+      .qa {
+        margin: 8px 0 10px;
+        padding: 10px 12px;
+        background: #ffffff;
+        break-inside: avoid;
+      }
+
+      .qa strong {
+        color: #b45309;
+      }
+
+      .toc {
+        columns: 2;
+        column-gap: 28px;
+        margin-top: 15px;
+      }
+
+      .toc p {
+        break-inside: avoid;
+        margin: 0 0 7px;
+      }
+
+      .footer-note {
+        margin-top: 18px;
+        padding-top: 10px;
+        border-top: 1px solid #e2e8f0;
+        color: #64748b;
+        font-size: 11.2px;
+      }
+
+      .muted {
+        color: #64748b;
+      }
+
+      .avoid-break {
+        break-inside: avoid;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="cover">
+        <div>
+          <div class="eyebrow">SHENZHI AGENT MVP · DEPLOYMENT GUIDE</div>
+          <h1>神志病AI问诊训练工作台<br />正式网页版部署操作指南</h1>
+          <p class="subtitle">
+            这份指南用于把当前本地项目部署成可分享访问的网址：前端部署到 Vercel/Netlify，后端部署到 Render/Railway/Fly.io/云服务器，
+            并完成 DeepSeek API Key、环境变量、健康检查和上线验证。
+          </p>
+          <div class="cover-grid">
+            <div class="cover-card">
+              <strong>推荐路线</strong>
+              GitHub + Render 后端 + Vercel 前端
+            </div>
+            <div class="cover-card">
+              <strong>当前项目路径</strong>
+              /Users/qymeded/Desktop/shenzhi_agent_mvp
+            </div>
+            <div class="cover-card">
+              <strong>核心后端文件</strong>
+              api_server.py
+            </div>
+            <div class="cover-card">
+              <strong>核心前端目录</strong>
+              frontend/
+            </div>
+          </div>
+        </div>
+        <div class="meta">
+          <p><span class="label">版本日期</span>2026-06-06</p>
+          <p><span class="label">适用对象</span>项目维护者、课堂/比赛演示负责人、后续协作者</p>
+          <p><span class="label">交付目标</span>别人打开一个网址即可使用网页端问诊训练系统</p>
+        </div>
+      </div>
+
+      <div class="content">
+        <section>
+          <h2>目录</h2>
+          <div class="toc">
+            <p>1. 你最终会得到什么</p>
+            <p>2. 部署架构说明</p>
+            <p>3. 上线前准备清单</p>
+            <p>4. 本地运行确认</p>
+            <p>5. 上传项目到 GitHub</p>
+            <p>6. 部署后端到 Render</p>
+            <p>7. 部署前端到 Vercel</p>
+            <p>8. Netlify 前端备选方案</p>
+            <p>9. 上线后的完整验证流程</p>
+            <p>10. 后续更新怎么发布</p>
+            <p>11. 常见问题排查</p>
+            <p>12. 公开分享前的安全提醒</p>
+          </div>
+        </section>
+
+        <section>
+          <h2>1. 你最终会得到什么</h2>
+          <p>完成部署后，你会有两个线上地址：</p>
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 24%">地址类型</th>
+                <th style="width: 38%">示例</th>
+                <th>用途</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>前端网址</td>
+                <td>https://shenzhi-agent.vercel.app</td>
+                <td>发给别人访问。用户看到的网页 UI、聊天界面、评分面板都在这里。</td>
+              </tr>
+              <tr>
+                <td>后端网址</td>
+                <td>https://shenzhi-agent-api.onrender.com</td>
+                <td>前端背后调用的 API 服务。负责病例、问诊、评分、PDF 导出、DeepSeek 调用。</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="callout">
+            <strong>一句话理解：</strong>前端是“网页外壳和操作界面”，后端是“系统大脑和数据接口”。别人只需要打开前端网址，前端会自动请求后端。
+          </div>
+        </section>
+
+        <section>
+          <h2>2. 部署架构说明</h2>
+          <div class="flow">
+            <div class="flow-row">
+              <div class="flow-box">用户浏览器<br /><span class="small">访问前端网址</span></div>
+              <div class="arrow">→</div>
+              <div class="flow-box">Vercel / Netlify<br /><span class="small">托管 frontend/</span></div>
+              <div class="arrow">→</div>
+              <div class="flow-box">Render 后端<br /><span class="small">运行 api_server.py</span></div>
+            </div>
+            <div style="height: 10px"></div>
+            <div class="flow-row">
+              <div class="flow-box">PDF 下载<br /><span class="small">问诊记录导出</span></div>
+              <div class="arrow">←</div>
+              <div class="flow-box">运行数据<br /><span class="small">SQLite / runtime</span></div>
+              <div class="arrow">←</div>
+              <div class="flow-box">DeepSeek API<br /><span class="small">模型回复</span></div>
+            </div>
+          </div>
+          <p>项目中已经做过部署适配：</p>
+          <ul>
+            <li>前端通过 <code>VITE_API_BASE_URL</code> 指向线上后端。</li>
+            <li>后端通过平台提供的 <code>PORT</code> 自动监听正确端口。</li>
+            <li>PDF 导出、舌象图片等资源链接也会跟随后端域名。</li>
+          </ul>
+        </section>
+
+        <section class="section-break">
+          <h2>3. 上线前准备清单</h2>
+          <h3>3.1 账号准备</h3>
+          <ul class="checklist">
+            <li>GitHub 账号：用于保存代码仓库。</li>
+            <li>Render 账号：用于部署 Python 后端。</li>
+            <li>Vercel 账号：用于部署 React/Vite 前端。</li>
+            <li>DeepSeek API Key：用于后端调用模型。</li>
+          </ul>
+
+          <h3>3.2 本机工具准备</h3>
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 26%">工具</th>
+                <th style="width: 34%">用途</th>
+                <th>检查命令</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Git</td>
+                <td>提交并上传代码到 GitHub</td>
+                <td><code>git --version</code></td>
+              </tr>
+              <tr>
+                <td>Python</td>
+                <td>本地运行后端和测试</td>
+                <td><code>python3 --version</code></td>
+              </tr>
+              <tr>
+                <td>Node.js / pnpm</td>
+                <td>本地运行和构建前端</td>
+                <td><code>node -v</code>、<code>pnpm -v</code></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="info-box">
+            如果提示 <code>pnpm: command not found</code>，建议先安装 Node.js LTS，然后执行：
+            <pre>corepack enable
+corepack prepare pnpm@latest --activate
+pnpm -v</pre>
+          </div>
+
+          <h3>3.3 不要提交到 GitHub 的内容</h3>
+          <p>这些内容不能上传，尤其是 API Key：</p>
+          <ul>
+            <li><code>.venv/</code>：本地 Python 虚拟环境。</li>
+            <li><code>frontend/node_modules/</code>：本地前端依赖。</li>
+            <li><code>frontend/dist/</code>：构建产物，平台会自动生成。</li>
+            <li><code>.streamlit/secrets.toml</code>：本地密钥文件。</li>
+            <li><code>runtime/</code>：本地运行时数据库。</li>
+            <li><code>reports/</code>：本地导出的报告。</li>
+          </ul>
+          <p>项目中的 <code>.gitignore</code> 已经排除了这些内容，但上传前仍建议用 <code>git status</code> 看一眼。</p>
+        </section>
+
+        <section>
+          <h2>4. 本地运行确认</h2>
+          <p>正式部署前，先确认本地版本能正常运行。打开终端：</p>
+          <pre>cd /Users/qymeded/Desktop/shenzhi_agent_mvp</pre>
+
+          <h3>4.1 启动后端</h3>
+          <pre>source .venv/bin/activate
+./scripts/start_api.sh</pre>
+          <p>后端默认地址：</p>
+          <pre>http://127.0.0.1:8765</pre>
+          <p>另开一个终端检查健康接口：</p>
+          <pre>curl http://127.0.0.1:8765/api/health</pre>
+          <p>正常返回：</p>
+          <pre>{"status": "ok"}</pre>
+
+          <h3>4.2 启动前端</h3>
+          <pre>cd /Users/qymeded/Desktop/shenzhi_agent_mvp/frontend
+pnpm install
+pnpm dev</pre>
+          <p>前端默认地址：</p>
+          <pre>http://localhost:5173</pre>
+          <p>打开后做三个动作：新建问诊、发送一句问题、导出问诊记录 PDF。都正常再进入部署。</p>
+        </section>
+
+        <section class="section-break">
+          <h2>5. 上传项目到 GitHub</h2>
+          <h3>5.1 如果你还没有 GitHub 仓库</h3>
+          <div class="steps">
+            <div class="step">
+              <p class="step-title">在 GitHub 新建仓库</p>
+              <p>进入 GitHub，点击 New repository。仓库名可以叫 <code>shenzhi_agent_mvp</code> 或 <code>shenzhi-ai-workbench</code>。不要勾选自动创建 README，因为本地已经有项目文件。</p>
+            </div>
+            <div class="step">
+              <p class="step-title">在本地初始化并提交</p>
+              <pre>cd /Users/qymeded/Desktop/shenzhi_agent_mvp
+git init
+git add .
+git commit -m "Prepare formal web deployment"
+git branch -M main</pre>
+            </div>
+            <div class="step">
+              <p class="step-title">关联远程仓库并推送</p>
+              <pre>git remote add origin https://github.com/你的用户名/你的仓库名.git
+git push -u origin main</pre>
+            </div>
+          </div>
+
+          <h3>5.2 如果你已经有 GitHub 仓库</h3>
+          <pre>cd /Users/qymeded/Desktop/shenzhi_agent_mvp
+git status
+git add .
+git commit -m "Prepare formal web deployment"
+git push</pre>
+
+          <div class="warning">
+            <strong>注意：</strong>如果 <code>git status</code> 里出现 <code>.streamlit/secrets.toml</code>、<code>.venv</code>、<code>node_modules</code>，先不要提交，说明忽略规则可能没生效，需要先处理。
+          </div>
+        </section>
+
+        <section>
+          <h2>6. 部署后端到 Render</h2>
+          <p>后端负责所有核心功能：病例读取、问诊对话、评分、PDF 导出、模型调用。因此后端必须先部署成功，前端才能正确连接。</p>
+
+          <h3>6.1 创建 Web Service</h3>
+          <div class="steps">
+            <div class="step">
+              <p class="step-title">登录 Render</p>
+              <p>进入 Render 控制台，点击 <strong>New +</strong>，选择 <strong>Web Service</strong>。</p>
+            </div>
+            <div class="step">
+              <p class="step-title">连接 GitHub 仓库</p>
+              <p>选择你刚刚上传的项目仓库。如果第一次使用，需要授权 Render 读取 GitHub。</p>
+            </div>
+            <div class="step">
+              <p class="step-title">填写服务配置</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th>配置项</th>
+                    <th>填写内容</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Name</td>
+                    <td><code>shenzhi-agent-api</code></td>
+                  </tr>
+                  <tr>
+                    <td>Root Directory</td>
+                    <td>留空，表示项目根目录</td>
+                  </tr>
+                  <tr>
+                    <td>Runtime</td>
+                    <td>Python</td>
+                  </tr>
+                  <tr>
+                    <td>Branch</td>
+                    <td><code>main</code></td>
+                  </tr>
+                  <tr>
+                    <td>Build Command</td>
+                    <td><code>pip install -r requirements.txt</code></td>
+                  </tr>
+                  <tr>
+                    <td>Start Command</td>
+                    <td><code>python api_server.py</code></td>
+                  </tr>
+                  <tr>
+                    <td>Health Check Path</td>
+                    <td><code>/api/health</code></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <h3>6.2 配置环境变量</h3>
+          <p>在 Render 的 Environment 页面添加：</p>
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 34%">Key</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>DEEPSEEK_API_KEY</code></td>
+                <td>你的 DeepSeek API Key。不要写进代码，不要上传 GitHub。</td>
+              </tr>
+              <tr>
+                <td><code>SHENZHI_RUNTIME_DIR</code></td>
+                <td><code>/opt/render/project/src/runtime</code></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="callout">
+            Render 会自动提供 <code>PORT</code> 环境变量。当前后端代码已经支持它：线上会监听 <code>0.0.0.0:$PORT</code>，本地仍默认监听 <code>127.0.0.1:8765</code>。
+          </div>
+
+          <h3>6.3 部署并检查</h3>
+          <ol>
+            <li>点击 Deploy Web Service。</li>
+            <li>等待日志里出现类似 <code>Shenzhi API listening</code>。</li>
+            <li>打开后端健康检查地址：</li>
+          </ol>
+          <pre>https://你的后端域名.onrender.com/api/health</pre>
+          <p>正常返回：</p>
+          <pre>{"status": "ok"}</pre>
+
+          <h3>6.4 关于持久化数据</h3>
+          <p>当前问诊历史会写到运行目录中的 SQLite 数据库。Render 如果没有挂持久化磁盘，服务重启或重新部署后，运行时数据可能丢失。</p>
+          <p>演示阶段可以先不挂磁盘；如果要长期给别人用，建议在 Render 给服务添加 Persistent Disk，然后把 <code>SHENZHI_RUNTIME_DIR</code> 设置为磁盘挂载目录。</p>
+        </section>
+
+        <section class="section-break">
+          <h2>7. 部署前端到 Vercel</h2>
+          <p>前端是用户真正访问的网址。它不保存 DeepSeek API Key，只通过环境变量知道后端在哪。</p>
+
+          <h3>7.1 导入项目</h3>
+          <div class="steps">
+            <div class="step">
+              <p class="step-title">登录 Vercel</p>
+              <p>进入 Vercel 控制台，点击 <strong>Add New Project</strong> 或 <strong>Import Project</strong>。</p>
+            </div>
+            <div class="step">
+              <p class="step-title">选择 GitHub 仓库</p>
+              <p>选择同一个 <code>shenzhi_agent_mvp</code> 仓库。</p>
+            </div>
+            <div class="step">
+              <p class="step-title">填写构建配置</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th>配置项</th>
+                    <th>填写内容</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Framework Preset</td>
+                    <td>Vite</td>
+                  </tr>
+                  <tr>
+                    <td>Root Directory</td>
+                    <td><code>frontend</code></td>
+                  </tr>
+                  <tr>
+                    <td>Build Command</td>
+                    <td><code>pnpm build</code></td>
+                  </tr>
+                  <tr>
+                    <td>Output Directory</td>
+                    <td><code>dist</code></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <h3>7.2 设置前端环境变量</h3>
+          <p>在 Vercel 的 Environment Variables 里添加：</p>
+          <pre>VITE_API_BASE_URL=https://你的后端域名.onrender.com</pre>
+          <p>注意：</p>
+          <ul>
+            <li>不要在末尾加 <code>/</code>，例如不要写成 <code>https://xxx.onrender.com/</code>。</li>
+            <li>改了这个环境变量后，必须重新部署前端，因为 Vite 会在构建时写入变量。</li>
+          </ul>
+
+          <h3>7.3 发布并访问</h3>
+          <ol>
+            <li>点击 Deploy。</li>
+            <li>构建成功后，Vercel 会给你一个前端网址。</li>
+            <li>打开前端网址，确认能看到登录/工作台界面。</li>
+          </ol>
+
+          <div class="warning">
+            <strong>如果页面能打开但问诊失败：</strong>多数是 <code>VITE_API_BASE_URL</code> 配错、后端没启动、后端 API Key 没配，或者前端改环境变量后没有重新部署。
+          </div>
+        </section>
+
+        <section>
+          <h2>8. Netlify 前端备选方案</h2>
+          <p>如果你不用 Vercel，也可以把前端部署到 Netlify。配置如下：</p>
+          <table>
+            <thead>
+              <tr>
+                <th>配置项</th>
+                <th>填写内容</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Base directory</td>
+                <td><code>frontend</code></td>
+              </tr>
+              <tr>
+                <td>Build command</td>
+                <td><code>pnpm build</code></td>
+              </tr>
+              <tr>
+                <td>Publish directory</td>
+                <td><code>dist</code></td>
+              </tr>
+              <tr>
+                <td>Environment variable</td>
+                <td><code>VITE_API_BASE_URL=https://你的后端域名.onrender.com</code></td>
+              </tr>
+            </tbody>
+          </table>
+          <p>前端平台二选一即可。推荐先用 Vercel，因为 Vite 项目的默认识别和部署体验通常更顺。</p>
+        </section>
+
+        <section class="section-break">
+          <h2>9. 上线后的完整验证流程</h2>
+          <p>部署完成后不要只看首页，要按下面清单逐项验证。</p>
+
+          <h3>9.1 后端验证</h3>
+          <ul class="checklist">
+            <li>打开 <code>/api/health</code>，返回 <code>{"status":"ok"}</code>。</li>
+            <li>Render 日志没有持续报错。</li>
+            <li>环境变量里已经填入 <code>DEEPSEEK_API_KEY</code>。</li>
+          </ul>
+
+          <h3>9.2 前端验证</h3>
+          <ul class="checklist">
+            <li>前端网址能打开。</li>
+            <li>登录界面/工作台 UI 显示正常。</li>
+            <li>能进入问诊页面。</li>
+            <li>左侧历史记录、中间对话、右侧评分面板显示正常。</li>
+          </ul>
+
+          <h3>9.3 功能验证</h3>
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 24%">功能</th>
+                <th style="width: 46%">验证动作</th>
+                <th>通过标准</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>新建问诊</td>
+                <td>点击新建会话或进入默认会话。</td>
+                <td>能看到病例标题和聊天输入框。</td>
+              </tr>
+              <tr>
+                <td>患者回复</td>
+                <td>发送“你最近主要哪里不舒服？”</td>
+                <td>患者 Agent 返回符合病例的自然回答。</td>
+              </tr>
+              <tr>
+                <td>评分反馈</td>
+                <td>连续问 2-3 个问题。</td>
+                <td>本轮评分和右侧评分详情能更新。</td>
+              </tr>
+              <tr>
+                <td>督导反馈</td>
+                <td>在右侧督导区域提问。</td>
+                <td>能给出下一步问诊建议。</td>
+              </tr>
+              <tr>
+                <td>PDF 导出</td>
+                <td>点击导出问诊记录。</td>
+                <td>下载 PDF，内容包含本轮全部问诊记录。</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>9.4 Network 检查</h3>
+          <p>打开浏览器开发者工具，进入 Network。刷新页面后查看请求：</p>
+          <ul>
+            <li><code>/api/chats</code> 应该请求到 Render 后端域名。</li>
+            <li>如果请求跑到 Vercel/Netlify 自己的域名，说明 <code>VITE_API_BASE_URL</code> 没生效。</li>
+            <li>如果接口返回 500，去 Render Logs 看后端错误。</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>10. 后续更新怎么发布</h2>
+          <p>后续修改 UI、评分逻辑、患者 Agent 提示词或 PDF 导出后，按下面流程发布。</p>
+          <pre>cd /Users/qymeded/Desktop/shenzhi_agent_mvp
+git status
+git add .
+git commit -m "Describe your update"
+git push</pre>
+          <p>推送后：</p>
+          <ul>
+            <li>Vercel 通常会自动重新部署前端。</li>
+            <li>Render 如果开启 Auto Deploy，也会自动重新部署后端。</li>
+            <li>如果只改了后端，前端不一定需要重新部署。</li>
+            <li>如果改了 <code>VITE_API_BASE_URL</code>，必须重新部署前端。</li>
+          </ul>
+          <div class="callout">
+            <strong>建议发布节奏：</strong>每次只改一个主题，例如“登录 UI 优化”“评分逻辑优化”“PDF 导出优化”。这样线上出问题时容易回退。
+          </div>
+        </section>
+
+        <section class="section-break">
+          <h2>11. 常见问题排查</h2>
+
+          <div class="qa">
+            <p><strong>问题 1：前端页面打开了，但发送消息失败。</strong></p>
+            <p>先检查后端健康接口是否正常，再检查 Vercel 的 <code>VITE_API_BASE_URL</code> 是否是 Render 后端域名。改完环境变量后要重新部署前端。</p>
+          </div>
+
+          <div class="qa">
+            <p><strong>问题 2：Render 后端部署失败。</strong></p>
+            <p>看 Render Logs。重点检查 <code>Build Command</code> 是否是 <code>pip install -r requirements.txt</code>，<code>Start Command</code> 是否是 <code>python api_server.py</code>。</p>
+          </div>
+
+          <div class="qa">
+            <p><strong>问题 3：后端显示启动了，但健康检查打不开。</strong></p>
+            <p>通常是服务没有监听平台端口。当前代码已经支持 <code>PORT</code>，如果仍失败，确认线上运行的是最新代码，并检查日志里的监听地址。</p>
+          </div>
+
+          <div class="qa">
+            <p><strong>问题 4：AI 不回复或一直报错。</strong></p>
+            <p>检查 <code>DEEPSEEK_API_KEY</code> 是否填在 Render 后端环境变量中，而不是 Vercel 前端。还要检查 DeepSeek 账号额度和服务状态。</p>
+          </div>
+
+          <div class="qa">
+            <p><strong>问题 5：PDF 导出失败。</strong></p>
+            <p>确认后端服务正常，当前会话确实有问诊记录。Network 里应看到类似 <code>/api/chats/xxx/export</code> 的请求，响应类型应该是 <code>application/pdf</code>。</p>
+          </div>
+
+          <div class="qa">
+            <p><strong>问题 6：历史记录重启后消失。</strong></p>
+            <p>这是没有配置持久化磁盘导致的。演示阶段可以接受；长期使用需要 Render Persistent Disk 或外部数据库。</p>
+          </div>
+
+          <div class="qa">
+            <p><strong>问题 7：Vercel 构建失败，提示 pnpm 找不到。</strong></p>
+            <p>在 Vercel 构建配置里保持 <code>pnpm build</code>。如果平台没有自动识别，可改成 <code>corepack enable && pnpm install && pnpm build</code>，或在项目中补充平台配置。</p>
+          </div>
+
+          <div class="qa">
+            <p><strong>问题 8：浏览器提示 CORS。</strong></p>
+            <p>当前后端默认允许跨域。如果后续改了 CORS 限制，需要把你的 Vercel/Netlify 前端域名加入允许列表。</p>
+          </div>
+        </section>
+
+        <section>
+          <h2>12. 公开分享前的安全提醒</h2>
+          <div class="warning">
+            <strong>重要：</strong>当前登录界面主要是 UI 状态，不是真正的后端账号鉴权。只要别人知道前端网址，就可能使用后端接口并消耗你的 DeepSeek API Key。
+          </div>
+          <p>正式公开分享前，建议至少做一种保护：</p>
+          <ul>
+            <li>给后端加真实登录鉴权。</li>
+            <li>给演示版本加访问密码。</li>
+            <li>限制 CORS，只允许指定前端域名访问。</li>
+            <li>设置请求频率限制，避免多人同时大量调用。</li>
+            <li>演示阶段只把链接发给小范围测试用户。</li>
+          </ul>
+
+          <h3>推荐的正式上线顺序</h3>
+          <ol>
+            <li>先部署后端，并确认 <code>/api/health</code> 正常。</li>
+            <li>再部署前端，并设置 <code>VITE_API_BASE_URL</code>。</li>
+            <li>自己完整走一遍问诊和 PDF 导出。</li>
+            <li>发给 1-2 个熟人测试。</li>
+            <li>确认稳定后再扩大分享范围。</li>
+          </ol>
+
+          <div class="footer-note">
+            本指南配套当前项目版本生成。若后续改成真实账号系统、数据库服务或云服务器部署方式，应同步更新本指南。
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
