@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="学生问诊头像">
+  <rect width="64" height="64" rx="18" fill="#E7F4F0"/>
+  <circle cx="32" cy="32" r="23" fill="#FFFFFF" stroke="#C9E4DC" stroke-width="2"/>
+  <path d="M22 20v9a10 10 0 0 0 20 0v-9" fill="none" stroke="#246E63" stroke-linecap="round" stroke-width="4"/>
+  <circle cx="22" cy="19" r="3" fill="#246E63"/>
+  <circle cx="42" cy="19" r="3" fill="#246E63"/>
+  <path d="M32 39v3a8 8 0 0 0 16 0v-2" fill="none" stroke="#246E63" stroke-linecap="round" stroke-width="4"/>
+  <circle cx="48" cy="37" r="4" fill="#FFFFFF" stroke="#246E63" stroke-width="3"/>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="患者头像">
+  <rect width="64" height="64" rx="18" fill="#F2F5F1"/>
+  <circle cx="32" cy="32" r="23" fill="#FFFFFF" stroke="#DEE8E2" stroke-width="2"/>
+  <circle cx="32" cy="26" r="8" fill="#D6E9E2"/>
+  <path d="M18 48c2.8-7.4 7.5-11 14-11s11.2 3.6 14 11" fill="#D6E9E2"/>
+  <path d="M25 27c1.6 1.6 3.9 2.4 7 2.4s5.4-.8 7-2.4" fill="none" stroke="#39766C" stroke-linecap="round" stroke-width="2"/>
+  <circle cx="28" cy="24" r="1.25" fill="#39766C"/>
+  <circle cx="36" cy="24" r="1.25" fill="#39766C"/>
+</svg>
